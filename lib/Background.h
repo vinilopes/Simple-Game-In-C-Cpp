@@ -77,8 +77,7 @@ void CreateScoreBoundary(){
     mgotoxy(31,11);
 	printf("-------------------------------------------------");
 	mgotoxy(35,13);
-    printf("-> Right");
-    //printf("-> Right    Esc Pause ");
+    printf("-> Right    Esc Pause ");
     mgotoxy(35,15);
     printf("<- Left ");
     mgotoxy(31,17);
@@ -162,9 +161,31 @@ int CreateGameMenu(){
 /**
 *Defines the score and speed of the game
 */
-void  SendScore(GameStats * gameStatics){
+void  SendScore(GameStats *gameStatics){
     mgotoxy(35,27);
     printf("POINTS:    %d",gameStatics->score);
     mgotoxy(35,29);
     printf("VELOCITY:  %d",gameStatics->speed);
+}
+
+/**
+*Pause the game
+*/
+int VerifyPause(int option){
+	char tecla='a';
+
+	if (option==1)
+	{
+		while(tecla!=32 && !(tecla=kbhit()))
+        {
+			mgotoxy(45,33);
+	    	printf("Press any key to continue");
+	    	Sleep(350);
+	    	mgotoxy(45,33);
+	    	printf("                           ");
+	    	Sleep(350);
+		}		
+           
+	}
+	return 0;
 }
