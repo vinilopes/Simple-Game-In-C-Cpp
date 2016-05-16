@@ -10,8 +10,8 @@ void SetWindow(int Width, int Height)
     Rect.Bottom = Height - 1; 
     Rect.Right = Width - 1; 
 
-    HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);      // Get Handle 
-    SetConsoleScreenBufferSize(Handle, coord);            // Set Buffer Size 
-    SetConsoleWindowInfo(Handle, TRUE, &Rect);            // Set Window Size 
+    HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);     
+    SetConsoleScreenBufferSize(Handle, coord);            
+    SetConsoleWindowInfo(Handle, TRUE, &Rect);  
 } 
 

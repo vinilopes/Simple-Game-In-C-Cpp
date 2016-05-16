@@ -11,19 +11,21 @@
 #include "Carro.h"
 #include "Player.h"
 
+
+
 void StartGame(){
     char tecla='a';
-    int move_diretion=10, num;
-    GameStats *gameStats = (GameStats*)malloc(sizeof(GameStats));
-    Car *carEnemy = (Car*)malloc(sizeof(Car));
-    Player *player = (Player*)malloc(sizeof(Player));
-
+    int move_diretion=10,pause=0, num;
+    
+    GameStats *gameStats = (GameStats *)malloc(sizeof(GameStats));
+    Car *carEnemy = (Car *)malloc(sizeof(Car));
+    
     /* Scene elements */
     CreateBoundary();
     CreateScoreBoundary();
-
+    
     /* Player */
-    InicializePlayer(player);
+    Player *player = InicializePlayer();
     InicializeScore(gameStats);
 
     srand(time(NULL));
@@ -32,6 +34,7 @@ void StartGame(){
         {
             while(tecla!='s' && !(tecla=kbhit()))
             {
+                pause = VerifyPause(pause);
                 MovePlayer(player, move_diretion);
                 SendScore(gameStats);
 
@@ -61,13 +64,14 @@ void StartGame(){
             if(tecla!='s')tecla=getch();
             if(tecla=='K')move_diretion=0;//left
             if(tecla=='M')move_diretion=2;//right
+            if(tecla==27)pause=1;//right
         } 
-
+        Sleep(200);
+        clear();
+        //SaveScore(gameStats);     
+        //ShowScore();
         free(player);
         free(carEnemy);
         free(gameStats);
-        clear();
-        //SaveScore(gameStats);
-        //ShowScore();
        
 }

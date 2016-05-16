@@ -1,4 +1,4 @@
-#include "GameMenu.h"
+#include "lib\GameMenu.h"
 
 
 int main(){

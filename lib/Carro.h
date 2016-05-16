@@ -4,7 +4,6 @@ typedef struct{
 	int cont_cars;
 }Car;
 
-
 /*
 Create de coordenates of car
 */

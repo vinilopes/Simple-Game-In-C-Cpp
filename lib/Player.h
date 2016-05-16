@@ -4,7 +4,7 @@ typedef struct{
 	int cy[5];
 }Player;
 
-void PrintPlayer(Player * player){
+void PrintPlayer(Player *player){
 
     mgotoxy(player->cx[1],player->cy[1]);
     printf("%c",219);
@@ -19,8 +19,9 @@ void PrintPlayer(Player * player){
 }
 
 
-void InicializePlayer(Player * player){
-	
+Player *InicializePlayer(){
+	Player *player = (Player *)malloc(sizeof(Player));
+
 	player->cx[1] = 15;
     player->cy[1] = 50;
     player->cx[2] = 17;
@@ -33,9 +34,11 @@ void InicializePlayer(Player * player){
     player->cy[5] = 48;
 
     PrintPlayer(player);
+	return player;   
+    
 }
 
-void EraseLastPositionPlayer(Player * player){
+void EraseLastPositionPlayer(Player *player){
 	    mgotoxy(player->cx[1],player->cy[1]);
 		printf(" ");
 		mgotoxy(player->cx[2],player->cy[2]);
@@ -48,7 +51,7 @@ void EraseLastPositionPlayer(Player * player){
 		printf(" ");
 }
 
-void MovePlayer(Player * player, int move_direction){
+void MovePlayer(Player *player, int move_direction){
 
     if((move_direction == 0 &&  player->cx[1] > 1) || (move_direction == 2 &&  player->cx[1] < 27)){
 
@@ -74,7 +77,7 @@ void MovePlayer(Player * player, int move_direction){
 }
 
 
-int VerifyColision(Player * player, Car * car){
+int VerifyColision(Player *player, Car *car){
 	int i,z;
 
 	for(i=1;i<=car->cont_cars;i++){
