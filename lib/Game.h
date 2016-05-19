@@ -68,7 +68,7 @@ void StartGame(){
         } 
         Sleep(200);
         clear();
-        //SaveScore(gameStats);     
+        SaveScore(gameStats);     
         //ShowScore();
         free(player);
         free(carEnemy);
