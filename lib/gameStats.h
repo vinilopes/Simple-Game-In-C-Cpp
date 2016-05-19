@@ -35,9 +35,10 @@ int Spanwtime(GameStats *gameStatics){
 
 void SaveScore(GameStats *gameStats){
     char user[45];
-    char url_file[] = "leaderboards.txt";
 
-    FILE *leaderboards = fopen(url_file, "a");
+    FILE *leaderboards;
+
+    leaderboards = fopen("leaderboards.txt", "a");
 
     for (int i = 0; i < 3; i++)
     {
