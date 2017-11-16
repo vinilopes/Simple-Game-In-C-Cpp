@@ -1,2 +1,2 @@
 # Simple Game In C/C++
-This is a simple game maked in C 
+This is a simple game made in C 
